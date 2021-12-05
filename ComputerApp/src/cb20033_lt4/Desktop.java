@@ -19,7 +19,7 @@ public class Desktop extends Computer{
     public Desktop(Monitor monitor){
         super("HP");
         formFactor = "microTower";
-        brand = "HP";
+        brand = "DELL";
         storageSize = 512;
         this.monitor = monitor;}
 
