@@ -5,17 +5,16 @@ package cb20033_lt4;
  * Lab Group    : 05A
  * Task         : Lab Task 4
  */
-public class Laptop{
+public class Laptop extends Computer{
     
     private String type;
-    private String brand;
     private double screenSize;
     private int memorySize;
     private Monitor monitor;
     
     public Laptop(String type, String brand, double screenSize){
         this.type = type;
-        this.brand = brand;
+        brand = super.brand;
         this.screenSize = screenSize;
         memorySize = 8;
         monitor = new Monitor();}
@@ -53,5 +52,21 @@ public class Laptop{
     public void upgradeMemory(){}
     
     public void downgradeMemory(){}
+    
+    @Override
+    protected double calculatePrice(){
+        
+        double totalPrice;
+        
+        totalPrice = price*quantity;
+        
+        if(quantity<=10){
+            totalPrice+=2460;}
+        else if(quantity<=50){
+            totalPrice+=2260;}
+        else{
+            totalPrice+=2160;}
+        
+        return totalPrice;}
 
 }

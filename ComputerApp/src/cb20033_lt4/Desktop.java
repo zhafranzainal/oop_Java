@@ -5,10 +5,9 @@ package cb20033_lt4;
  * Lab Group    : 05A
  * Task         : Lab Task 4
  */
-public class Desktop{
+public class Desktop extends Computer{
     
     private String formFactor;
-    private String brand;
     private int storageSize;
     private Monitor monitor;
     
@@ -18,6 +17,7 @@ public class Desktop{
         storageSize = 512;}
     
     public Desktop(Monitor monitor){
+        super("HP");
         formFactor = "microTower";
         brand = "HP";
         storageSize = 512;
@@ -46,5 +46,21 @@ public class Desktop{
 
     public void setMonitor(Monitor monitor){
         this.monitor = monitor;}
+    
+    @Override
+    protected double calculatePrice(){
+        
+        double totalPrice;
+        
+        totalPrice = price*quantity;
+        
+        if(quantity<=10){
+            totalPrice+=1450;}
+        else if(quantity<=50){
+            totalPrice+=1250;}
+        else{
+            totalPrice+=1150;}
+        
+        return totalPrice;}
     
 }
