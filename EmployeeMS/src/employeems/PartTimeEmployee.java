@@ -3,28 +3,17 @@ package employeems;
 public class PartTimeEmployee extends Employee{
     
     private int numberHourWork;
-    private double RATE_PER_HOUR;
+    private final double RATE_PER_HOUR = 3.5;
     
-    public PartTimeEmployee(){
-        RATE_PER_HOUR=3.5;}
+    public PartTimeEmployee(String empNo, String name, double totalPayment, int numberHourWork){
+        super(empNo, name, totalPayment);
+        this.numberHourWork=numberHourWork;}
     
     @Override
     public double computeTotalPayment(){        
-        
-        totalPayment=getNumberHourWork()*getRATE_PER_HOUR();
-        
-        return totalPayment;}
-
-    public int getNumberHourWork(){
-        return numberHourWork;}
+        return totalPayment=numberHourWork*RATE_PER_HOUR;}
 
     public void setNumberHourWork(int numberHourWork){
         this.numberHourWork = numberHourWork;}
-
-    public double getRATE_PER_HOUR(){
-        return RATE_PER_HOUR;}
-
-    public void setRATE_PER_HOUR(double RATE_PER_HOUR){
-        this.RATE_PER_HOUR = RATE_PER_HOUR;}
 
 }

@@ -6,7 +6,10 @@ public class Employee{
     protected String name;
     protected double totalPayment;
     
-    public Employee(){}
+    public Employee(String empNo, String name, double totalPayment){
+        this.empNo=empNo;
+        this.name=name;
+        this.totalPayment=totalPayment;}
     
     public double computeTotalPayment(){
         return totalPayment;}
@@ -22,11 +25,5 @@ public class Employee{
 
     public void setName(String name){
         this.name = name;}
-
-    public double getTotalPayment(){
-        return totalPayment;}
-
-    public void setTotalPayment(double totalPayment){
-        this.totalPayment = totalPayment;}
     
 }

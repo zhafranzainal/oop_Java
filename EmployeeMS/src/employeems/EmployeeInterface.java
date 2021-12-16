@@ -16,8 +16,8 @@ public class EmployeeInterface{
         Employee employee[] = new Employee[2];
         
         //Parent class reference to child object
-        employee[0] = new FullTimeEmployee();
-        employee[1] = new PartTimeEmployee();
+        employee[0] = new FullTimeEmployee(null, null, 0, 0, 0);
+        employee[1] = new PartTimeEmployee(null, null, 0, 0);
         
         //downCasting
         FullTimeEmployee empFt = (FullTimeEmployee) employee[0];
