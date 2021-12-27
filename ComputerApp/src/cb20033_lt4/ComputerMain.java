@@ -11,38 +11,55 @@ public class ComputerMain{
 
     public static void main(String[] args){
         
-        Computer myComp1 = new Laptop("Thinkpad", "Lenovo", 13.3);
-        Computer myComp2 = new Desktop(new Monitor());
-        
         Scanner input = new Scanner(System.in);
         
-        Laptop laptop = (Laptop) myComp1;
+        //Array
+        Computer myComputer[] = new Computer[4];
+        Laptop laptop[] = new Laptop[2];
+        Desktop desktop[] = new Desktop[2];
         
-        System.out.println("CREATING RECORD FOR LAPTOP");
-        System.out.print("Please enter new laptop type		: ");
-        laptop.setType(input.nextLine());
+        for(int loop=0;loop<2;loop++){
+            myComputer[loop] = new Laptop(null, null, 0);}
         
-        System.out.print("Please enter new laptop brand		: ");
-        myComp1.setBrand(input.nextLine());
+        for(int loop=2;loop<4;loop++){
+            myComputer[loop] = new Desktop(new Monitor());}
         
-        System.out.print("Please enter new laptop screensize	: ");
-        laptop.setScreenSize(input.nextDouble());
+        for(int loop=0;loop<2;loop++){
+            laptop[loop] = (Laptop) myComputer[loop];}
         
-        Desktop desktop = (Desktop) myComp2;
+        for(int loop=0;loop<2;loop++){
+            System.out.println("CREATING RECORD FOR LAPTOP");
+            System.out.print("Please enter new laptop type		: ");
+            laptop[loop].setType(input.nextLine());
         
-        System.out.println("\nCREATING RECORD FOR DESKTOP");
-        System.out.print("Please enter new desktop form factor	: ");
-        desktop.setFormFactor(input.next());
+            System.out.print("Please enter new laptop brand		: ");
+            myComputer[loop].setBrand(input.nextLine());
         
-        System.out.print("Please enter new desktop storage size	: ");
-        desktop.setStorageSize(input.nextInt());
-
-        System.out.println("\nDISPLAYING RECORD FOR LAPTOP");
-        System.out.printf("Type for Laptop          : %s    || Brand for Laptop         : %s", laptop.getType(), laptop.getBrand());
-        System.out.printf("\nScreen Size for Laptop   : %.1f      || Memory Size for Laptop   : %d", laptop.getScreenSize(), laptop.getMemorySize());
-
-        System.out.println("\n\nDISPLAYING RECORD FOR DESKTOP");
-        System.out.printf("Brand for Desktop: %s || Form Factor for Desktop: %s || Storage Size for Desktop: %d", desktop.getBrand(), desktop.getFormFactor(), desktop.getStorageSize());
+            System.out.print("Please enter new laptop screensize	: ");
+            laptop[loop].setScreenSize(input.nextDouble());
+            input.nextLine();}
+        
+        for(int loop=2;loop<4;loop++){
+            desktop[loop-2] = (Desktop) myComputer[loop];}
+        
+        for(int loop=0;loop<2;loop++){
+            System.out.println("\nCREATING RECORD FOR DESKTOP");
+            System.out.print("Please enter new desktop form factor	: ");
+            desktop[loop].setFormFactor(input.next());
+        
+            System.out.print("Please enter new desktop storage size	: ");
+            desktop[loop].setStorageSize(input.nextInt());}
+        
+        for(int loop=0;loop<2;loop++){
+            System.out.println("\nDISPLAYING RECORD FOR LAPTOP");
+            System.out.printf("Type for Laptop%d          : %s\t || Brand for Laptop%d         : %s", loop+1, laptop[loop].getType(), loop+1, laptop[loop].getBrand());
+            System.out.printf("\nScreen Size for Laptop%d   : %.1f\t || Memory Size for Laptop%d   : %d", loop+1, laptop[loop].getScreenSize(), loop+1, laptop[loop].getMemorySize());}
+        
+        System.out.println("");
+        
+        for(int loop=0;loop<2;loop++){
+            System.out.println("\nDISPLAYING RECORD FOR DESKTOP");
+            System.out.printf("Brand for Desktop%d: %s\t || Form Factor for Desktop%d: %s\t || Storage Size for Desktop%d: %d", loop+3, desktop[loop].getBrand(), loop+3, desktop[loop].getFormFactor(), loop+3, desktop[loop].getStorageSize());}
         
         System.out.println("\n");
     }

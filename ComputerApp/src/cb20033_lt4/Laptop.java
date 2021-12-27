@@ -14,7 +14,7 @@ public class Laptop extends Computer{
     
     public Laptop(String type, String brand, double screenSize){
         this.type = type;
-        brand = super.brand;
+        this.brand = brand;
         this.screenSize = screenSize;
         memorySize = 8;
         monitor = new Monitor();}
