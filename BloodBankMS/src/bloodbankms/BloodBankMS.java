@@ -17,7 +17,7 @@ public class BloodBankMS{
         User user[] = new User[10];
         
         //Parent class reference to child object
-        user[0] = new Donor("CB20033", "aloha", "Jeff", 66, 45, "B+", 12);
+        user[0] = new Donor("CB20033", "aloha", "Sofhia", 66, 45, "B+", 12);
         user[1] = new Patient("FA10021", "sasa", "Malisa", 21, 44, "A+");
         
         //downCasting
