@@ -68,5 +68,13 @@ public class Laptop extends Computer{
             totalPrice+=2160;}
         
         return totalPrice;}
+    
+    @Override
+    public void showOutput(){
+        System.out.println("Show output for Laptop");}
+
+    @Override
+    public void processOutput(){
+        System.out.println("Process digital output in Laptop");}
 
 }

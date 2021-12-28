@@ -13,54 +13,59 @@ public class ComputerMain{
         
         Scanner input = new Scanner(System.in);
         
-        //Array
-        Computer myComputer[] = new Computer[4];
-        Laptop laptop[] = new Laptop[2];
-        Desktop desktop[] = new Desktop[2];
+        Computer myComputer[] = new Computer[2];
         
-        for(int loop=0;loop<2;loop++){
-            myComputer[loop] = new Laptop(null, null, 0);}
+        for(int loop=0;loop<myComputer.length;loop++){
+            
+            if(loop<1){
+                System.out.println("CREATING RECORD FOR LAPTOP");
+                myComputer[loop] = new Laptop(null, null, 0);
+                Laptop mylap = (Laptop) myComputer[loop];
+                System.out.print("Please enter new laptop type		: ");
+                mylap.setType(input.nextLine());
         
-        for(int loop=2;loop<4;loop++){
-            myComputer[loop] = new Desktop(new Monitor());}
+                System.out.print("Please enter new laptop brand		: ");
+                myComputer[loop].setBrand(input.nextLine());
         
-        for(int loop=0;loop<2;loop++){
-            laptop[loop] = (Laptop) myComputer[loop];}
+                System.out.print("Please enter new laptop screensize	: ");
+                mylap.setScreenSize(input.nextDouble());
+                input.nextLine();}
+                
+            else{
+                myComputer[loop] = new Desktop(new Monitor());
+                Desktop mydesk = (Desktop) myComputer[loop];
+                System.out.println("\nCREATING RECORD FOR DESKTOP");
+                System.out.print("Please enter new desktop form factor	: ");
+                mydesk.setFormFactor(input.next());
         
-        for(int loop=0;loop<2;loop++){
-            System.out.println("CREATING RECORD FOR LAPTOP");
-            System.out.print("Please enter new laptop type		: ");
-            laptop[loop].setType(input.nextLine());
+                System.out.print("Please enter new desktop storage size	: ");
+                mydesk.setStorageSize(input.nextInt());}
+        }
         
-            System.out.print("Please enter new laptop brand		: ");
-            myComputer[loop].setBrand(input.nextLine());
+        for(int loop=0;loop<myComputer.length;loop++){
+            
+            if(myComputer[loop] instanceof Laptop){
+                Laptop mylap = (Laptop) myComputer[loop];
+                System.out.println("\nDISPLAYING RECORD FOR LAPTOP");
+                System.out.printf("Type for Laptop%d          : %s\t || Brand for Laptop%d         : %s", loop+1, mylap.getType(), loop+1, mylap.getBrand());
+                System.out.printf("\nScreen Size for Laptop%d   : %.1f\t || Memory Size for Laptop%d   : %d", loop+1, mylap.getScreenSize(), loop+1, mylap.getMemorySize());
+                System.out.println("\nDigital machine bit: " +DigitalMachine.BIT);
+                mylap.processOutput();
+                System.out.println("INPUT from  : " +ElectronicDevice.INPUT);
+                System.out.println("OUTPUT to   : " +ElectronicDevice.OUTPUT);
+                mylap.showOutput();}
         
-            System.out.print("Please enter new laptop screensize	: ");
-            laptop[loop].setScreenSize(input.nextDouble());
-            input.nextLine();}
-        
-        for(int loop=2;loop<4;loop++){
-            desktop[loop-2] = (Desktop) myComputer[loop];}
-        
-        for(int loop=0;loop<2;loop++){
-            System.out.println("\nCREATING RECORD FOR DESKTOP");
-            System.out.print("Please enter new desktop form factor	: ");
-            desktop[loop].setFormFactor(input.next());
-        
-            System.out.print("Please enter new desktop storage size	: ");
-            desktop[loop].setStorageSize(input.nextInt());}
-        
-        for(int loop=0;loop<2;loop++){
-            System.out.println("\nDISPLAYING RECORD FOR LAPTOP");
-            System.out.printf("Type for Laptop%d          : %s\t || Brand for Laptop%d         : %s", loop+1, laptop[loop].getType(), loop+1, laptop[loop].getBrand());
-            System.out.printf("\nScreen Size for Laptop%d   : %.1f\t || Memory Size for Laptop%d   : %d", loop+1, laptop[loop].getScreenSize(), loop+1, laptop[loop].getMemorySize());}
+            else{
+                Desktop mydesk = (Desktop) myComputer[loop];
+                System.out.println("\nDISPLAYING RECORD FOR DESKTOP");
+                System.out.printf("Brand for Desktop%d: %s\t || Form Factor for Desktop%d: %s\t || Storage Size for Desktop%d: %d", loop+1, mydesk.getBrand(), loop+1, mydesk.getFormFactor(), loop+1, mydesk.getStorageSize());
+                System.out.println("\nDigital machine bit: " +DigitalMachine.BIT);
+                mydesk.processOutput();
+                System.out.println("INPUT from  : " +ElectronicDevice.INPUT);
+                System.out.println("OUTPUT to   : " +ElectronicDevice.OUTPUT);
+                mydesk.showOutput();}
+        }
         
         System.out.println("");
-        
-        for(int loop=0;loop<2;loop++){
-            System.out.println("\nDISPLAYING RECORD FOR DESKTOP");
-            System.out.printf("Brand for Desktop%d: %s\t || Form Factor for Desktop%d: %s\t || Storage Size for Desktop%d: %d", loop+3, desktop[loop].getBrand(), loop+3, desktop[loop].getFormFactor(), loop+3, desktop[loop].getStorageSize());}
-        
-        System.out.println("\n");
     }
 }

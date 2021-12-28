@@ -62,5 +62,13 @@ public class Desktop extends Computer{
             totalPrice+=1150;}
         
         return totalPrice;}
+
+    @Override
+    public void showOutput(){
+        System.out.println("Show output for Desktop");}
+
+    @Override
+    public void processOutput(){
+        System.out.println("Process digital output in Desktop");}
     
 }

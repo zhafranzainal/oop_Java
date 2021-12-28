@@ -5,7 +5,7 @@ package cb20033_lt4;
  * Lab Group    : 05A
  * Task         : Lab Task 4
  */
-public class Computer{
+abstract public class Computer implements ElectronicDevice, DigitalMachine{
     
     protected String brand;
     protected double price;
@@ -39,12 +39,6 @@ public class Computer{
     public void setQuantity(int quantity){
         this.quantity = quantity;}
     
-    protected double calculatePrice(){
-        
-        double totalPrice;
-        
-        totalPrice = price*quantity;
-        
-        return totalPrice;}
+    abstract protected double calculatePrice();
     
 }
