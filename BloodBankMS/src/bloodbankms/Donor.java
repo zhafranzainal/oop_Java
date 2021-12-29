@@ -19,7 +19,7 @@ public class Donor extends User{
                 return "You have to wait for " +weekRemaining +" week(s) before donating again";}}
         
         else{
-            return "No";}
+            return "No (Unfit due to age/weight)";}
         
     }
     

@@ -5,9 +5,11 @@ public class User{
     protected String id;
     protected String password;
     protected String name;
+    protected String gender;
     protected int age;
     protected int weight;
     protected String bloodGroup;
+    protected Hospital hospital;
     
     public User(String id, String password, String name, int age, int weight, String bloodGroup){
         this.id=id;
