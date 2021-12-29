@@ -4,8 +4,8 @@ public class Patient extends User{
     
     private String bloodMatch;
     
-    public Patient(String id, String password, String name, int age, int weight, String bloodGroup){
-        super(id, password, name, age, weight, bloodGroup);}
+    public Patient(String id, String password, String name, String gender, int age, float weight, String bloodGroup, Hospital hospital){
+        super(id, password, name, gender, age, weight, bloodGroup, hospital);}
     
     public String getBloodMatch(){
         return bloodMatch;}
