@@ -5,7 +5,9 @@ public class BloodBank{
     private Blood blood;
     private int bloodStock;
     
-    public BloodBank(){}
+    public BloodBank(){
+        blood = new Blood();
+        bloodStock=0;}
 
     public Blood getBlood(){
         return blood;}
