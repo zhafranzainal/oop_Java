@@ -44,5 +44,6 @@ public class BloodBankMS{
         System.out.println("\nCompatibility       : " +userPatient.checkCompatibility(user[0].bloodGroup));
         
         System.out.println("");
+        System.out.println("Testing");
     }
 }
