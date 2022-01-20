@@ -67,6 +67,7 @@ public class BloodBankMS{
             System.in.read();}  
         catch(Exception e){}
         
+        System.out.println("Country: " +HelpDesk.COUNTRY);
         System.out.print("List of Hospitals\t\t\t State\t\t Sector\t\t");
         
         for(int loop=1;loop<hospital.length;loop++){
