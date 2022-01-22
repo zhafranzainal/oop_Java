@@ -15,7 +15,14 @@ public class User{
         this.name=name;
         this.age=age;
         this.weight=weight;
+<<<<<<< Updated upstream
         this.bloodGroup=bloodGroup;}
+=======
+        this.bloodGroup=bloodGroup;
+        this.hospital=hospital;}
+    
+    public User(){};  // For Patient GUI
+>>>>>>> Stashed changes
 
     public String getId(){
         return id;}
