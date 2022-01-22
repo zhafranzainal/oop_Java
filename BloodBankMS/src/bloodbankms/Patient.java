@@ -4,8 +4,20 @@ public class Patient extends User{
     
     
     
+<<<<<<< Updated upstream
     public Patient(String id, String password, String name, int age, int weight, String bloodGroup){
         super(id, password, name, age, weight, bloodGroup);}
+=======
+    public Patient(){
+        super();
+    }; // For Patient GUI
+    
+    public String getBloodMatch(){
+        return bloodMatch;}
+
+    public void setBloodMatch(String bloodMatch){
+        this.bloodMatch = bloodMatch;}
+>>>>>>> Stashed changes
     
     public String checkCompatibility(String bloodGroupDonor){
         
