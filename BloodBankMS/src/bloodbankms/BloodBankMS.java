@@ -20,6 +20,9 @@ public class BloodBankMS{
         Hospital hospital[] = new Hospital[7];
         User user[] = new User[14];
         
+        UserFactory factUser = new UserFactory();
+        User userMain = null;
+        
         hospital[0] = new Hospital(null, null, null, new BloodBank());
         hospital[1] = new Hospital("Selangor", "Kajang Hospital               ", "Public ", new BloodBank());
         hospital[2] = new Hospital("Selangor", "Ampang Hospital               ", "Public ", new BloodBank());
@@ -43,10 +46,6 @@ public class BloodBankMS{
         user[11] = new Donor("pijah", "roodge", "Hafezah Loi", "F", 47, 45.1f, "B+", hospital[0], 2, 1, 12);
         user[12] = new Donor("rach", "pultaceous", "Rachel Zizi", "F", 49, 45.1f, "O+", hospital[0], 2, 1, 12);
         user[13] = new Donor("tehah", "ontography", "Nurfatehah Lee", "F", 67, 45.1f, "O-", hospital[0], 2, 1, 12);
-        
-        //downCasting
-        Patient userPatient = (Patient) user[0];
-        Donor userDonor = (Donor) user[1];
         
         System.out.println("=================================================");
         System.out.println("|                                               |");
@@ -105,70 +104,78 @@ public class BloodBankMS{
         userChoice=Character.toUpperCase(userChoice);
         
         if(userChoice=='A'){
+            
+            userMain = factUser.getUser(userChoice);
+            Donor donor = (Donor) userMain;
+            
             System.out.print("\nEnter name            : ");
-            user[1].setName(input.nextLine());
+            donor.setName(input.nextLine());
             System.out.print("Enter gender [M/F]    : ");
-            user[1].setGender(input.next());
+            donor.setGender(input.next());
             System.out.print("Enter age             : ");
-            user[1].setAge(input.nextInt());
+            donor.setAge(input.nextInt());
             System.out.print("Enter weight (kg)     : ");
-            user[1].setWeight(input.nextFloat());
+            donor.setWeight(input.nextFloat());
             System.out.println("\n\t**Blood Group** \n[A+/ O+/ B+/ AB+/ A-/ O-/ B-/ AB-]");
             
             //prompt error
             for(;;){
             System.out.print("\nEnter blood group                     : ");
-            user[1].setBloodGroup(input.next());
+            donor.setBloodGroup(input.next());
             
-            if(user[1].getBloodGroup().equals("A+") || user[1].getBloodGroup().equals("O+") || user[1].getBloodGroup().equals("B+") || user[1].getBloodGroup().equals("AB+") || user[1].getBloodGroup().equals("A-") || user[1].getBloodGroup().equals("O-") || user[1].getBloodGroup().equals("B-") || user[1].getBloodGroup().equals("AB-")){
+            if(donor.getBloodGroup().equals("A+") || donor.getBloodGroup().equals("O+") || donor.getBloodGroup().equals("B+") || donor.getBloodGroup().equals("AB+") || donor.getBloodGroup().equals("A-") || donor.getBloodGroup().equals("O-") || donor.getBloodGroup().equals("B-") || donor.getBloodGroup().equals("AB-")){
                 break;}
             
             System.out.println("\nERROR! Please only insert one of available 8 blood groups (all CAPS).");}
             
             System.out.print("Healthy? [Yes=1, No=2]                : ");
-            userDonor.setHealthStatus(input.nextInt());
+            donor.setHealthStatus(input.nextInt());
             System.out.print("Private name? [Yes=1, No=2]           : ");
-            userDonor.setAnonymity(input.nextInt());
+            donor.setAnonymity(input.nextInt());
             System.out.print("Enter nth week since last donation    : ");
-            userDonor.setLastWeekDonation(input.nextInt());
+            donor.setLastWeekDonation(input.nextInt());
         
             System.out.println("\nDATE: " +dateCurrent);
         
-            System.out.printf("\nDonor               : %s(%d)", user[1].getName(), user[1].getAge());
-            System.out.println("\nBlood Group         : " +user[1].bloodGroup);
-            System.out.println("Donate Blood To     : " +userDonor.checkRecipient());
-            System.out.printf("Weight              : %.2fkg", user[1].getWeight());
-            System.out.println("\nEligibility         : " +userDonor.checkEligibilty());
+            System.out.printf("\nDonor               : %s(%d)", donor.getName(), donor.getAge());
+            System.out.println("\nBlood Group         : " +donor.bloodGroup);
+            System.out.println("Donate Blood To     : " +donor.checkRecipient());
+            System.out.printf("Weight              : %.2fkg", donor.getWeight());
+            System.out.println("\nEligibility         : " +donor.checkEligibilty());
         }
         
         else if(userChoice=='B'){
+            
+            userMain = factUser.getUser(userChoice);
+            Patient patient = (Patient) userMain;
+            
             System.out.print("\nEnter name            : ");
-            user[0].setName(input.nextLine());
+            patient.setName(input.nextLine());
             System.out.print("Enter gender [M/F]    : ");
-            user[0].setGender(input.next());
+            patient.setGender(input.next());
             System.out.print("Enter age             : ");
-            user[0].setAge(input.nextInt());
+            patient.setAge(input.nextInt());
             System.out.print("Enter weight (kg)     : ");
-            user[0].setWeight(input.nextFloat());
+            patient.setWeight(input.nextFloat());
             System.out.println("\n\t**Blood Group** \n[A+/ O+/ B+/ AB+/ A-/ O-/ B-/ AB-]");
             
             //prompt error
             for(;;){
             System.out.print("\nEnter blood group: ");
-            user[0].setBloodGroup(input.next());
+            patient.setBloodGroup(input.next());
             
-            if(user[0].getBloodGroup().equals("A+") || user[0].getBloodGroup().equals("O+") || user[0].getBloodGroup().equals("B+") || user[0].getBloodGroup().equals("AB+") || user[0].getBloodGroup().equals("A-") || user[0].getBloodGroup().equals("O-") || user[0].getBloodGroup().equals("B-") || user[0].getBloodGroup().equals("AB-")){
+            if(patient.getBloodGroup().equals("A+") || patient.getBloodGroup().equals("O+") || patient.getBloodGroup().equals("B+") || patient.getBloodGroup().equals("AB+") || patient.getBloodGroup().equals("A-") || patient.getBloodGroup().equals("O-") || patient.getBloodGroup().equals("B-") || patient.getBloodGroup().equals("AB-")){
                 break;}
             
             System.out.println("\nERROR! Please only insert one of available 8 blood groups (all CAPS).");}
         
             System.out.println("\nDATE: " +dateCurrent);
             
-            System.out.printf("\nRecipient           : %s(%d)", user[0].getName(), user[0].getAge());
-            System.out.println("\nBlood Group         : " +user[0].bloodGroup);
+            System.out.printf("\nRecipient           : %s(%d)", patient.getName(), patient.getAge());
+            System.out.println("\nBlood Group         : " +patient.bloodGroup);
             System.out.printf("Receive Blood From  : %s(%s)", user[1].getName(), user[1].bloodGroup);
-            System.out.println("\nBlood Compatibility : " +userPatient.getBloodMatch());
-            System.out.println("Compatibility       : " +userPatient.checkCompatibility(user[1].bloodGroup));
+            System.out.println("\nBlood Compatibility : " +patient.getBloodMatch());
+            System.out.println("Compatibility       : " +patient.checkCompatibility(user[1].bloodGroup));
         
         }
         
@@ -208,21 +215,21 @@ public class BloodBankMS{
                 System.out.println("\nHOSPITAL: " +hospital[6].getName());}
         
             if(searchedBlood.equals("A+")){
-                System.out.printf("LIST OF DONORS (%s)\t QUANTITY", hospital[0].getBloodBank().getBlood().getBloodType1());}
+                System.out.printf("LIST OF DONORS (%s)", hospital[0].getBloodBank().getBlood().getBloodType1());}
             else if(searchedBlood.equals("O+")){
-                System.out.printf("LIST OF DONORS (%s)\t QUANTITY", hospital[0].getBloodBank().getBlood().getBloodType2());}
+                System.out.printf("LIST OF DONORS (%s)", hospital[0].getBloodBank().getBlood().getBloodType2());}
             else if(searchedBlood.equals("B+")){
-                System.out.printf("LIST OF DONORS (%s)\t QUANTITY", hospital[0].getBloodBank().getBlood().getBloodType3());}
+                System.out.printf("LIST OF DONORS (%s)", hospital[0].getBloodBank().getBlood().getBloodType3());}
             else if(searchedBlood.equals("AB+")){
-                System.out.printf("LIST OF DONORS (%s)\t QUANTITY", hospital[0].getBloodBank().getBlood().getBloodType4());}
+                System.out.printf("LIST OF DONORS (%s)", hospital[0].getBloodBank().getBlood().getBloodType4());}
             else if(searchedBlood.equals("A-")){
-                System.out.printf("LIST OF DONORS (%s)\t QUANTITY", hospital[0].getBloodBank().getBlood().getBloodType5());}
+                System.out.printf("LIST OF DONORS (%s)", hospital[0].getBloodBank().getBlood().getBloodType5());}
             else if(searchedBlood.equals("O-")){
-                System.out.printf("LIST OF DONORS (%s)\t QUANTITY", hospital[0].getBloodBank().getBlood().getBloodType6());}
+                System.out.printf("LIST OF DONORS (%s)", hospital[0].getBloodBank().getBlood().getBloodType6());}
             else if(searchedBlood.equals("B-")){
-                System.out.printf("LIST OF DONORS (%s)\t QUANTITY", hospital[0].getBloodBank().getBlood().getBloodType7());}
+                System.out.printf("LIST OF DONORS (%s)", hospital[0].getBloodBank().getBlood().getBloodType7());}
             else if(searchedBlood.equals("AB-")){
-                System.out.printf("LIST OF DONORS (%s)\t QUANTITY", hospital[0].getBloodBank().getBlood().getBloodType8());}
+                System.out.printf("LIST OF DONORS (%s)", hospital[0].getBloodBank().getBlood().getBloodType8());}
                 
             loopNo=1;
         
