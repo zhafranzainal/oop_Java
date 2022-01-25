@@ -131,22 +131,22 @@ public class GUI_Menu extends javax.swing.JFrame{
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         
-        /*if(radDonate_Blood.isSelected()){
+        if(radDonate_Blood.isSelected()){
             //open frame DB
-            GUI_DB frmDB = new GUI_DB();
+            GUI_DonateBlood frmDB = new GUI_DonateBlood();
             frmDB.show();//display frame
             dispose();//close current frame
-        }*/
-        if(radReceive_Blood.isSelected()){
+        }
+        else if(radReceive_Blood.isSelected()){
             GUI_ReceiveBlood frmRB = new GUI_ReceiveBlood();
             frmRB.show();
             dispose();
         }
-        /*else if(radDisplay_Blood.isSelected()){
-            GUI_DISB frmDISB = new GUI_DISB();
+        else if(radDisplay_Blood.isSelected()){
+            GUI_DisplayBlood frmDISB = new GUI_DisplayBlood();
             frmDISB.show();
             dispose();
-        }*/
+        }
         else if(radHelp.isSelected()){
             GUI_HelpInfo frmHELP = new GUI_HelpInfo();
             frmHELP.show();

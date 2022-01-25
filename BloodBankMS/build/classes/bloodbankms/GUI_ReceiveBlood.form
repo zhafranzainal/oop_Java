@@ -322,7 +322,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Compability Preview">
+            <TitledBorder title="Compatibility Preview">
               <Font PropertyName="font" name="Lucida Bright" size="18" style="1"/>
               <Color PropertyName="color" blue="99" green="99" red="0" type="rgb"/>
             </TitledBorder>

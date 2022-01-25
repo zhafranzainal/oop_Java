@@ -1,15 +1,17 @@
 package bloodbankms;
 
-public class GUI_ReceiveBlood extends javax.swing.JFrame{
+import javax.management.StringValueExp;
+
+public class GUI_DonateBlood extends javax.swing.JFrame{
     
     User userDonor = new Donor("piya", "aloha", "Sofhia", "F", 66, 45.1f, "B+", null, 2, 1, 12);
     User userPatient = new Patient(null, null, null, null, 0, 0, null, null);
                 
     //downCasting
-    Donor donor = (Donor) userDonor;
-    Patient obj = (Patient) userPatient;
+    Donor obj = (Donor) userDonor;
+    Patient patient = (Patient) userPatient;
 
-    public GUI_ReceiveBlood(){
+    public GUI_DonateBlood(){
         initComponents();}
 
     /**
@@ -21,6 +23,8 @@ public class GUI_ReceiveBlood extends javax.swing.JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
@@ -37,23 +41,31 @@ public class GUI_ReceiveBlood extends javax.swing.JFrame{
         txtName = new javax.swing.JTextField();
         BloodGLbl = new javax.swing.JLabel();
         cmbBloodGroup = new javax.swing.JComboBox<>();
+        WeightLbl1 = new javax.swing.JLabel();
+        WeightLbl2 = new javax.swing.JLabel();
+        WeightLbl3 = new javax.swing.JLabel();
+        txtWeek = new javax.swing.JTextField();
+        radHealthyYes = new javax.swing.JRadioButton();
+        radHealthyNo = new javax.swing.JRadioButton();
+        radPvtYes = new javax.swing.JRadioButton();
+        radPvtNo = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         CompatibilityTxt = new javax.swing.JLabel();
         RecipientTxt = new javax.swing.JLabel();
         RBFTxt = new javax.swing.JLabel();
         BloodGroupTxt = new javax.swing.JLabel();
         BloodCompTxt = new javax.swing.JLabel();
-        RecipientTxt1 = new javax.swing.JLabel();
-        BloodGroupTxt1 = new javax.swing.JLabel();
-        RBFTxt1 = new javax.swing.JLabel();
-        BloodCompTxt1 = new javax.swing.JLabel();
-        CompatibilityTxt1 = new javax.swing.JLabel();
+        labelDonor = new javax.swing.JLabel();
+        labelBlood = new javax.swing.JLabel();
+        labelDonateTo = new javax.swing.JLabel();
+        labelWeight = new javax.swing.JLabel();
+        labelEligibility = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setBackground(new java.awt.Color(204, 255, 255));
         jLabel1.setFont(new java.awt.Font("Lucida Bright", 1, 36)); // NOI18N
-        jLabel1.setText("Receive Blood");
+        jLabel1.setText("Donate Blood");
 
         btnConfirm.setBackground(new java.awt.Color(204, 255, 255));
         btnConfirm.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -64,7 +76,7 @@ public class GUI_ReceiveBlood extends javax.swing.JFrame{
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Patient Information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Bright", 1, 18), new java.awt.Color(0, 51, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Donor Information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Bright", 1, 18), new java.awt.Color(0, 51, 255))); // NOI18N
         jPanel1.setToolTipText("");
 
         NameLbl.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
@@ -126,6 +138,39 @@ public class GUI_ReceiveBlood extends javax.swing.JFrame{
             }
         });
 
+        WeightLbl1.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
+        WeightLbl1.setText("Healthy?");
+
+        WeightLbl2.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
+        WeightLbl2.setText("Private name?");
+
+        WeightLbl3.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
+        WeightLbl3.setText("Last donation week");
+
+        txtWeek.setToolTipText("");
+        txtWeek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtWeekActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(radHealthyYes);
+        radHealthyYes.setText("Yes");
+
+        buttonGroup1.add(radHealthyNo);
+        radHealthyNo.setText("No");
+
+        buttonGroup2.add(radPvtYes);
+        radPvtYes.setText("Yes");
+
+        buttonGroup2.add(radPvtNo);
+        radPvtNo.setText("No");
+        radPvtNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radPvtNoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -133,33 +178,53 @@ public class GUI_ReceiveBlood extends javax.swing.JFrame{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(GenderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AgeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbGender, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(WeightLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(17, 17, 17))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(BloodGLbl)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(NameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(GenderLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AgeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(76, 76, 76)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(WeightLbl3)
+                                                .addGap(17, 17, 17)
+                                                .addComponent(txtWeek, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(WeightLbl2)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(radPvtYes, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cmbGender, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(68, 68, 68)
+                                        .addComponent(WeightLbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(radHealthyYes, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(WeightLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(17, 17, 17))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(BloodGLbl)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(radHealthyNo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(radPvtNo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,29 +234,51 @@ public class GUI_ReceiveBlood extends javax.swing.JFrame{
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtName)
                         .addGap(3, 3, 3))
-                    .addComponent(NameLbl))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(NameLbl)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(radHealthyYes)
+                                .addComponent(radHealthyNo))
+                            .addComponent(WeightLbl1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(GenderLbl)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(cmbGender)
                         .addGap(2, 2, 2)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AgeLbl)
-                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtWeight)
-                    .addComponent(WeightLbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BloodGLbl)
-                    .addComponent(cmbBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AgeLbl)
+                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtWeight)
+                            .addComponent(WeightLbl))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BloodGLbl)
+                            .addComponent(cmbBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(WeightLbl2)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(radPvtYes)
+                                .addComponent(radPvtNo)))
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtWeek)
+                            .addComponent(WeightLbl3))))
                 .addContainerGap())
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Compatibility Preview", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Bright", 1, 18), new java.awt.Color(0, 153, 153))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Eligibility Preview", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Bright", 1, 18), new java.awt.Color(0, 153, 153))); // NOI18N
 
         CompatibilityTxt.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
 
@@ -203,20 +290,20 @@ public class GUI_ReceiveBlood extends javax.swing.JFrame{
 
         BloodCompTxt.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
 
-        RecipientTxt1.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
-        RecipientTxt1.setText("Recipient:");
+        labelDonor.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
+        labelDonor.setText("Donor:");
 
-        BloodGroupTxt1.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
-        BloodGroupTxt1.setText("Blood Group:");
+        labelBlood.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
+        labelBlood.setText("Blood Group:");
 
-        RBFTxt1.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
-        RBFTxt1.setText("Receive Blood From:");
+        labelDonateTo.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
+        labelDonateTo.setText("Donate Blood To:");
 
-        BloodCompTxt1.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
-        BloodCompTxt1.setText("Blood Compatibility:");
+        labelWeight.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
+        labelWeight.setText("Weight:");
 
-        CompatibilityTxt1.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
-        CompatibilityTxt1.setText("Compatibility:");
+        labelEligibility.setFont(new java.awt.Font("Lucida Bright", 0, 18)); // NOI18N
+        labelEligibility.setText("Eligibility:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -227,48 +314,48 @@ public class GUI_ReceiveBlood extends javax.swing.JFrame{
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BloodCompTxt1)
-                            .addComponent(RBFTxt1))
+                            .addComponent(labelWeight)
+                            .addComponent(labelDonateTo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RBFTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BloodCompTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(RecipientTxt1)
+                        .addComponent(labelDonor)
                         .addGap(18, 18, 18)
                         .addComponent(RecipientTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(BloodGroupTxt1)
+                        .addComponent(labelBlood)
                         .addGap(18, 18, 18)
                         .addComponent(BloodGroupTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(CompatibilityTxt1)
+                        .addComponent(labelEligibility)
                         .addGap(18, 18, 18)
                         .addComponent(CompatibilityTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addContainerGap(293, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RecipientTxt1)
+                    .addComponent(labelDonor)
                     .addComponent(RecipientTxt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BloodGroupTxt1)
+                    .addComponent(labelBlood)
                     .addComponent(BloodGroupTxt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RBFTxt1)
+                    .addComponent(labelDonateTo)
                     .addComponent(RBFTxt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BloodCompTxt1)
+                    .addComponent(labelWeight)
                     .addComponent(BloodCompTxt))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CompatibilityTxt1)
+                    .addComponent(labelEligibility)
                     .addComponent(CompatibilityTxt))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -341,6 +428,7 @@ public class GUI_ReceiveBlood extends javax.swing.JFrame{
         obj.setName(txtName.getText()); //Get Name from textfield
         obj.setAge(Integer.parseInt(txtAge.getText())); //Get Age from textfield
         obj.setWeight(Integer.parseInt(txtWeight.getText())); //Get Weight from textfield
+        obj.setLastWeekDonation(Integer.parseInt(txtWeek.getText())); //Get Week Donation from textfield
         
         //Get Gender from option box
         if(cmbGender.getSelectedIndex()==1)
@@ -364,12 +452,22 @@ public class GUI_ReceiveBlood extends javax.swing.JFrame{
         else if(cmbBloodGroup.getSelectedIndex()==7)
             obj.setBloodGroup("AB-");
         
+        //Get health status and anonymity
+        if(radHealthyYes.isSelected()){
+            obj.setHealthStatus(1);}
+        else if(radHealthyNo.isSelected()){
+            obj.setHealthStatus(2);}
+        else if(radPvtYes.isSelected()){
+            obj.setAnonymity(1);}
+        else if(radPvtNo.isSelected()){
+            obj.setAnonymity(2);}
+        
         //Output
-        RecipientTxt.setText(obj.getName());
-        BloodGroupTxt.setText(obj.getBloodGroup());
-        RBFTxt1.setText("Receive Blood From: " +donor.getName());
-        BloodCompTxt.setText(obj.getBloodMatch());
-        CompatibilityTxt.setText(obj.checkCompatibility(donor.bloodGroup)); 
+        labelDonor.setText("Donor                   : " +obj.getName());
+        labelBlood.setText("Blood Group         : " +obj.getBloodGroup());
+        labelDonateTo.setText("Donate Blood To  : " +obj.checkRecipient());
+        labelWeight.setText("Weight                  : " +String.valueOf(obj.getWeight()));
+        labelEligibility.setText("Eligibility             : " +obj.checkEligibilty()); 
         
     }//GEN-LAST:event_btnSubmitActionPerformed
 
@@ -380,6 +478,14 @@ public class GUI_ReceiveBlood extends javax.swing.JFrame{
     private void txtWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWeightActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtWeightActionPerformed
+
+    private void txtWeekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWeekActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtWeekActionPerformed
+
+    private void radPvtNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radPvtNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radPvtNoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -398,21 +504,23 @@ public class GUI_ReceiveBlood extends javax.swing.JFrame{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI_ReceiveBlood.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_DonateBlood.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI_ReceiveBlood.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_DonateBlood.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI_ReceiveBlood.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_DonateBlood.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI_ReceiveBlood.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_DonateBlood.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_ReceiveBlood().setVisible(true);
+                new GUI_DonateBlood().setVisible(true);
             }
         });
     }
@@ -420,21 +528,21 @@ public class GUI_ReceiveBlood extends javax.swing.JFrame{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AgeLbl;
     private javax.swing.JLabel BloodCompTxt;
-    private javax.swing.JLabel BloodCompTxt1;
     private javax.swing.JLabel BloodGLbl;
     private javax.swing.JLabel BloodGroupTxt;
-    private javax.swing.JLabel BloodGroupTxt1;
     private javax.swing.JLabel CompatibilityTxt;
-    private javax.swing.JLabel CompatibilityTxt1;
     private javax.swing.JLabel GenderLbl;
     private javax.swing.JLabel NameLbl;
     private javax.swing.JLabel RBFTxt;
-    private javax.swing.JLabel RBFTxt1;
     private javax.swing.JLabel RecipientTxt;
-    private javax.swing.JLabel RecipientTxt1;
     private javax.swing.JLabel WeightLbl;
+    private javax.swing.JLabel WeightLbl1;
+    private javax.swing.JLabel WeightLbl2;
+    private javax.swing.JLabel WeightLbl3;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnSubmit;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> cmbBloodGroup;
     private javax.swing.JComboBox<String> cmbGender;
     private javax.swing.JLabel jLabel1;
@@ -442,8 +550,18 @@ public class GUI_ReceiveBlood extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel labelBlood;
+    private javax.swing.JLabel labelDonateTo;
+    private javax.swing.JLabel labelDonor;
+    private javax.swing.JLabel labelEligibility;
+    private javax.swing.JLabel labelWeight;
+    private javax.swing.JRadioButton radHealthyNo;
+    private javax.swing.JRadioButton radHealthyYes;
+    private javax.swing.JRadioButton radPvtNo;
+    private javax.swing.JRadioButton radPvtYes;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtWeek;
     private javax.swing.JTextField txtWeight;
     // End of variables declaration//GEN-END:variables
 }

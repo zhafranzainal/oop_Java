@@ -14,6 +14,7 @@ public class GUI_Login extends javax.swing.JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -100,6 +101,7 @@ public class GUI_Login extends javax.swing.JFrame{
             }
         });
 
+        buttonGroup2.add(radDonor);
         radDonor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         radDonor.setText("Donor");
         radDonor.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +110,7 @@ public class GUI_Login extends javax.swing.JFrame{
             }
         });
 
+        buttonGroup2.add(radPatient);
         radPatient.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         radPatient.setText("Patient");
         radPatient.addActionListener(new java.awt.event.ActionListener() {
@@ -271,6 +274,7 @@ public class GUI_Login extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btnEnter;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

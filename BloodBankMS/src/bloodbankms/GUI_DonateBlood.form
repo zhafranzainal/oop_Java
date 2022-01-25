@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup2">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -77,7 +83,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Bright" size="36" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Receive Blood"/>
+        <Property name="text" type="java.lang.String" value="Donate Blood"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnConfirm">
@@ -102,7 +108,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Patient Information">
+            <TitledBorder title="Donor Information">
               <Font PropertyName="font" name="Lucida Bright" size="18" style="1"/>
               <Color PropertyName="color" blue="ff" green="33" red="0" type="rgb"/>
             </TitledBorder>
@@ -117,45 +123,71 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="NameLbl" min="-2" pref="106" max="-2" attributes="0"/>
-                              <Component id="GenderLbl" min="-2" pref="106" max="-2" attributes="0"/>
-                              <Component id="AgeLbl" min="-2" pref="106" max="-2" attributes="0"/>
-                          </Group>
+                      <Component id="btnSubmit" alignment="0" min="-2" pref="294" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtName" min="-2" pref="171" max="-2" attributes="0"/>
-                                      <Component id="cmbGender" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="NameLbl" min="-2" pref="106" max="-2" attributes="0"/>
+                                      <Component id="GenderLbl" min="-2" pref="106" max="-2" attributes="0"/>
+                                      <Component id="AgeLbl" min="-2" pref="106" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="txtAge" min="-2" pref="92" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="WeightLbl3" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                                  <Component id="txtWeek" min="-2" pref="92" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="WeightLbl2" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="radPvtYes" min="-2" pref="93" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtName" min="-2" pref="171" max="-2" attributes="0"/>
+                                              <Component id="cmbGender" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                                          <Component id="WeightLbl1" min="-2" pref="106" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="radHealthyYes" min="-2" pref="93" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtAge" min="-2" pref="92" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="WeightLbl" min="-2" pref="106" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="BloodGLbl" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="cmbBloodGroup" min="-2" pref="92" max="-2" attributes="0"/>
+                                      <Component id="txtWeight" min="-2" pref="92" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="radHealthyNo" min="-2" pref="93" max="-2" attributes="0"/>
+                              <Component id="radPvtNo" min="-2" pref="93" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="WeightLbl" min="-2" pref="106" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="BloodGLbl" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="cmbBloodGroup" min="-2" pref="92" max="-2" attributes="0"/>
-                              <Component id="txtWeight" min="-2" pref="92" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="btnSubmit" alignment="0" min="-2" pref="294" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="62" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -168,7 +200,20 @@
                           <Component id="txtName" max="32767" attributes="0"/>
                           <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="NameLbl" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="NameLbl" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="radHealthyYes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="radHealthyNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="WeightLbl1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="GenderLbl" min="-2" max="-2" attributes="0"/>
@@ -177,23 +222,42 @@
                           <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="AgeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="AgeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtWeight" max="32767" attributes="0"/>
+                              <Component id="WeightLbl" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="BloodGLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmbBloodGroup" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnSubmit" min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="WeightLbl2" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="radPvtYes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="radPvtNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtWeek" alignment="0" max="32767" attributes="0"/>
+                              <Component id="WeightLbl3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="txtWeight" max="32767" attributes="0"/>
-                      <Component id="WeightLbl" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="BloodGLbl" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cmbBloodGroup" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btnSubmit" min="-2" pref="31" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -316,13 +380,80 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
+        <Component class="javax.swing.JLabel" name="WeightLbl1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Lucida Bright" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Healthy?"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="WeightLbl2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Lucida Bright" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Private name?"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="WeightLbl3">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Lucida Bright" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Last donation week"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtWeek">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtWeekActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="radHealthyYes">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Yes"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="radHealthyNo">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="No"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="radPvtYes">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup2"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Yes"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="radPvtNo">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="buttonGroup2"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="No"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radPvtNoActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Compatibility Preview">
+            <TitledBorder title="Eligibility Preview">
               <Font PropertyName="font" name="Lucida Bright" size="18" style="1"/>
               <Color PropertyName="color" blue="99" green="99" red="0" type="rgb"/>
             </TitledBorder>
@@ -338,8 +469,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="BloodCompTxt1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="RBFTxt1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelWeight" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelDonateTo" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -348,22 +479,22 @@
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="RecipientTxt1" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelDonor" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="RecipientTxt" min="-2" pref="294" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="BloodGroupTxt1" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelBlood" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="BloodGroupTxt" min="-2" pref="296" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="CompatibilityTxt1" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelEligibility" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="CompatibilityTxt" min="-2" pref="294" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="262" max="32767" attributes="0"/>
+                  <EmptySpace pref="293" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -372,27 +503,27 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="RecipientTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelDonor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="RecipientTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="BloodGroupTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelBlood" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="BloodGroupTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="RBFTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelDonateTo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="RBFTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="BloodCompTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelWeight" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="BloodCompTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="CompatibilityTxt1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelEligibility" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="CompatibilityTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -436,15 +567,15 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="RecipientTxt1">
+        <Component class="javax.swing.JLabel" name="labelDonor">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Bright" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Recipient:"/>
+            <Property name="text" type="java.lang.String" value="Donor:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="BloodGroupTxt1">
+        <Component class="javax.swing.JLabel" name="labelBlood">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Bright" size="18" style="0"/>
@@ -452,28 +583,28 @@
             <Property name="text" type="java.lang.String" value="Blood Group:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="RBFTxt1">
+        <Component class="javax.swing.JLabel" name="labelDonateTo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Bright" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Receive Blood From:"/>
+            <Property name="text" type="java.lang.String" value="Donate Blood To:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="BloodCompTxt1">
+        <Component class="javax.swing.JLabel" name="labelWeight">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Bright" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Blood Compatibility:"/>
+            <Property name="text" type="java.lang.String" value="Weight:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="CompatibilityTxt1">
+        <Component class="javax.swing.JLabel" name="labelEligibility">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Lucida Bright" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Compatibility:"/>
+            <Property name="text" type="java.lang.String" value="Eligibility:"/>
           </Properties>
         </Component>
       </SubComponents>
