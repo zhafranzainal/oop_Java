@@ -2,22 +2,16 @@ package bloodbankms;
 
 public class Patient extends User{
     
+    private String bloodMatch;
     
-    
-<<<<<<< Updated upstream
-    public Patient(String id, String password, String name, int age, int weight, String bloodGroup){
-        super(id, password, name, age, weight, bloodGroup);}
-=======
-    public Patient(){
-        super();
-    }; // For Patient GUI
+    public Patient(String id, String password, String name, String gender, int age, float weight, String bloodGroup, Hospital hospital){
+        super(id, password, name, gender, age, weight, bloodGroup, hospital);}
     
     public String getBloodMatch(){
         return bloodMatch;}
 
     public void setBloodMatch(String bloodMatch){
         this.bloodMatch = bloodMatch;}
->>>>>>> Stashed changes
     
     public String checkCompatibility(String bloodGroupDonor){
         
@@ -34,40 +28,48 @@ public class Patient extends User{
         bloodType[7]="AB-";
         
         switch(bloodGroup){
-            case "A+": if(bloodGroupDonor.equals(bloodType[0]) || bloodGroupDonor.equals(bloodType[4]) || bloodGroupDonor.equals(bloodType[1])|| bloodGroupDonor.equals(bloodType[5]))
+            case "A+": setBloodMatch("A");
+                       if(bloodGroupDonor.equals(bloodType[0]) || bloodGroupDonor.equals(bloodType[4]) || bloodGroupDonor.equals(bloodType[1])|| bloodGroupDonor.equals(bloodType[5]))
                         return "Yes";
                        else
                         return "No";
-            case "O+": if(bloodGroupDonor.equals(bloodType[1]) || bloodGroupDonor.equals(bloodType[5]))
+            case "O+": setBloodMatch("A");
+                       if(bloodGroupDonor.equals(bloodType[1]) || bloodGroupDonor.equals(bloodType[5]))
                         return "Yes";
                        else
                         return "No";
-            case "B+": if(bloodGroupDonor.equals(bloodType[2]) || bloodGroupDonor.equals(bloodType[6]) || bloodGroupDonor.equals(bloodType[1])|| bloodGroupDonor.equals(bloodType[5]))
+            case "B+": setBloodMatch("A");
+                       if(bloodGroupDonor.equals(bloodType[2]) || bloodGroupDonor.equals(bloodType[6]) || bloodGroupDonor.equals(bloodType[1])|| bloodGroupDonor.equals(bloodType[5]))
                         return "Yes";
                        else
                         return "No";
-            case "AB+": if(bloodGroupDonor.equals(bloodType[0]) || bloodGroupDonor.equals(bloodType[1]) || bloodGroupDonor.equals(bloodType[2]) || bloodGroupDonor.equals(bloodType[3]) || bloodGroupDonor.equals(bloodType[4]) || bloodGroupDonor.equals(bloodType[5]) || bloodGroupDonor.equals(bloodType[6])|| bloodGroupDonor.equals(bloodType[7]))
+            case "AB+": setBloodMatch("A");
+                       if(bloodGroupDonor.equals(bloodType[0]) || bloodGroupDonor.equals(bloodType[1]) || bloodGroupDonor.equals(bloodType[2]) || bloodGroupDonor.equals(bloodType[3]) || bloodGroupDonor.equals(bloodType[4]) || bloodGroupDonor.equals(bloodType[5]) || bloodGroupDonor.equals(bloodType[6])|| bloodGroupDonor.equals(bloodType[7]))
                         return "Yes";
                        else
                         return "No";            
-            case "A-": if(bloodGroupDonor.equals(bloodType[4]) || bloodGroupDonor.equals(bloodType[5]))
+            case "A-": setBloodMatch("A");
+                       if(bloodGroupDonor.equals(bloodType[4]) || bloodGroupDonor.equals(bloodType[5]))
                         return "Yes";
                        else
                         return "No";            
-            case "O-": if(bloodGroupDonor.equals(bloodType[5]))
+            case "O-": setBloodMatch("A");
+                       if(bloodGroupDonor.equals(bloodType[5]))
                         return "Yes";
                        else
                         return "No";            
-            case "B-": if(bloodGroupDonor.equals(bloodType[6]) || bloodGroupDonor.equals(bloodType[5]))
+            case "B-": setBloodMatch("A");
+                       if(bloodGroupDonor.equals(bloodType[6]) || bloodGroupDonor.equals(bloodType[5]))
                         return "Yes";
                        else
                         return "No";            
-            case "AB-": if(bloodGroupDonor.equals(bloodType[7]) || bloodGroupDonor.equals(bloodType[4]) || bloodGroupDonor.equals(bloodType[6]) || bloodGroupDonor.equals(bloodType[5]))
+            case "AB-": setBloodMatch("A");
+                       if(bloodGroupDonor.equals(bloodType[7]) || bloodGroupDonor.equals(bloodType[4]) || bloodGroupDonor.equals(bloodType[6]) || bloodGroupDonor.equals(bloodType[5]))
                         return "Yes";
                        else
                         return "No";            
             default: return "No";}
         
     }
-    
+
 }
