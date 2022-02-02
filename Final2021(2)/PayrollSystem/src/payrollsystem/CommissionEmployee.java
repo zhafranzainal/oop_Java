@@ -1,6 +1,11 @@
 package payrollsystem;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class CommissionEmployee extends Employee{
+    
+    NumberFormat formatter = NumberFormat.getCurrencyInstance(Locale.US);
     
     private double grossSales;
     private double commissionRate;
@@ -23,16 +28,15 @@ public class CommissionEmployee extends Employee{
         this.commissionRate = commissionRate;}
     
     @Override
-    public String getNameFirst(){
-        return nameFirst;}
-
-    @Override
-    public String getNameLast(){
-        return nameLast;}
-
-    @Override
-    public String getMyKad(){
-        return myKad;}
+    public String displayInfo(){
+        
+        System.out.printf("\nCommission employee : %s %s", getNameFirst(), getNameLast());
+        System.out.println("\nMyKad               : " +getMyKad());
+        System.out.println("Gross sales         : " +formatter.format(getGrossSales()));
+        System.out.println("Commission rate     : " +getCommissionRate());
+        System.out.println("Earned              : " +formatter.format(getEarnings()));
+        
+        return "";}
     
     @Override
     public double getEarnings(){

@@ -29,6 +29,9 @@ abstract public class Employee{
     public void setMyKad(String myKad){
         this.myKad = myKad;}
     
+    public String displayInfo(){
+        return "";}
+    
     abstract double getEarnings();
     
 }

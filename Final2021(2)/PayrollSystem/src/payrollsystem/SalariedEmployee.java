@@ -1,6 +1,11 @@
 package payrollsystem;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class SalariedEmployee extends Employee{
+    
+    NumberFormat formatter = NumberFormat.getCurrencyInstance(Locale.US);
     
     private double monthlySalary;
     
@@ -15,16 +20,14 @@ public class SalariedEmployee extends Employee{
         this.monthlySalary = monthlySalary;}
     
     @Override
-    public String getNameFirst(){
-        return nameFirst;}
-
-    @Override
-    public String getNameLast(){
-        return nameLast;}
-
-    @Override
-    public String getMyKad(){
-        return myKad;}
+    public String displayInfo(){
+        
+        System.out.printf("Salaried employee   : %s %s", getNameFirst(), getNameLast());
+        System.out.println("\nMyKad               : " +getMyKad());
+        System.out.println("Monthly salary      : " +formatter.format(getMonthlySalary()));
+        System.out.println("Earned              : " +formatter.format(getEarnings()));
+        
+        return "";}
     
     @Override
     public double getEarnings(){
